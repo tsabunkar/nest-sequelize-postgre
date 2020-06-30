@@ -13,8 +13,8 @@ export abstract class DatabaseModel<T> extends Model<T> {
   @Column
   empno: number;
 
-  /*   @Column({ type: DataType.STRING('50'), field: 'created_by' })
-  created_by: string; */
+  @Column({ type: DataType.STRING('50'), field: 'created_by' })
+  created_by: string;
 
   @CreatedAt
   created_at: Date;

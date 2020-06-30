@@ -5,7 +5,7 @@ import {
   DataType,
   PrimaryKey,
 } from 'sequelize-typescript';
-import { DatabaseModel } from 'src/database/database.model';
+// import { DatabaseModel } from 'src/database/database.model';
 
 @Table({ tableName: 'employee' })
 // export class Employee extends DatabaseModel<Employee> {

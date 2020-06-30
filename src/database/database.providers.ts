@@ -2,13 +2,13 @@ import { Sequelize } from 'sequelize-typescript';
 import { SEQUELIZE } from 'src/constants';
 import { Employee } from 'src/employee/employee.model';
 
-const dotenv = require('dotenv');
+import * as dotenv from 'dotenv';
 dotenv.config();
 
 export const databaseProviders = [
   {
     provide: SEQUELIZE,
-    useFactory: async () => {
+    useFactory: async (): Promise<Sequelize> => {
       const sequelize = new Sequelize({
         dialect: 'postgres',
         host: process.env.PGHOST || 'localhost',
