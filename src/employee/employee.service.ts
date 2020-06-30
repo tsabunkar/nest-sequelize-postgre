@@ -24,7 +24,7 @@ export class EmployeeService {
     return await this.crudRepo.create(employee);
   }
 
-  async delete(attributeVal: any): Promise<number> {
+  async delete(attributeVal: { empno: number }): Promise<number> {
     console.log(attributeVal);
     console.log(typeof attributeVal);
     return await this.crudRepo.destroy({

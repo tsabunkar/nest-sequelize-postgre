@@ -1,6 +1,7 @@
 import { Controller, Get, Post, Body, Delete } from '@nestjs/common';
 import { EmployeeService } from './employee.service';
 import { Employee } from './employee.model';
+import * as fastify from 'fastify';
 
 @Controller('/api/v1')
 export class EmployeeController {
@@ -17,13 +18,13 @@ export class EmployeeController {
   }
 
   @Post('employee')
-  async postEmployee(@Body() reqBody: any): Promise<Employee> {
+  async postEmployee(@Body() reqBody: fastify.DefaultBody): Promise<Employee> {
     console.log(reqBody);
-    return this.employeeService.post(reqBody);
+    return this.employeeService.post((reqBody as unknown) as Employee);
   }
 
   @Delete('employee')
-  async deleteEmployee(@Body() reqBody: any): Promise<number> {
+  async deleteEmployee(@Body() reqBody: fastify.DefaultBody): Promise<number> {
     console.log(reqBody);
     return this.employeeService.delete(reqBody);
   }
